@@ -3,161 +3,225 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="description" content="Kids Learning Hub 儿童跨学科学习探索平台，通过阅读、地理、数学等互动专题，陪伴孩子探索与发现。" />
-<title>Kids Learning Hub · 儿童跨学科学习探索平台</title>
+<meta name="description" content="Kids Learning Hub 儿童学习知识库，通过经典阅读、数学、英语和历史地理专题，陪伴孩子阅读、观察与探索。" />
+<title>Kids Learning Hub · 儿童学习知识库</title>
 <style>
-:root{--ink:#202124;--muted:#70757b;--line:#e8e8e6;--paper:#fff;--blue:#245b86}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
-a{color:inherit}
-.site-header{max-width:1440px;margin:0 auto;padding:52px 24px 34px;text-align:center;border-bottom:1px solid var(--line)}
-h1{font-size:clamp(32px,4vw,44px);line-height:1.2;letter-spacing:-.025em;margin:0 0 12px}
-.tagline{font-size:clamp(19px,2.2vw,25px);color:#777;margin:0}
-.subtitle{font-size:clamp(18px,2vw,23px);color:#777;margin:4px 0 0}
-main{max-width:1440px;margin:0 auto;padding:48px 24px 64px}
-.topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 20px}
-.card{min-width:0;margin:0}
-a.card{display:block;text-decoration:none;border-radius:20px}
-a.card:focus-visible{outline:3px solid #245b8666;outline-offset:6px}
-.card-art{aspect-ratio:16/9;overflow:hidden;border:1px solid #eceae4;border-radius:20px;background:#f6f4ef}
-.card-art svg{display:block;width:100%;height:100%;transition:transform .2s}
-a.card:hover .card-art svg{transform:scale(1.012)}
-a.card:hover h2{color:var(--blue)}
-.card h2{font-size:clamp(22px,2.4vw,30px);line-height:1.3;margin:16px 0 5px;transition:color .15s}
-.card p{font-size:clamp(16px,1.7vw,20px);color:var(--muted);margin:0}
-.card .status{font-size:15px;color:#85898d;margin-top:3px}
-.card .path{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
-@media(max-width:700px){.site-header{padding:36px 18px 26px}main{padding:28px 16px 44px}.topics{grid-template-columns:1fr;gap:30px}.card-art{border-radius:15px}.card h2{margin-top:12px}}
-@media(prefers-reduced-motion:reduce){.card-art svg{transition:none}a.card:hover .card-art svg{transform:none}}
+:root {
+  --ink: #1f2937;
+  --muted: #64748b;
+  --paper: #f6f4ef;
+  --panel: #fffefa;
+  --line: #e5e1d8;
+  --blue: #245b86;
+  --gold: #98733b;
+  --green: #26734d;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+a { color: inherit; }
+.site-header {
+  padding: 36px 24px 28px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner, main, footer { width: min(1160px, 100%); margin: 0 auto; }
+.kicker {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+h1 {
+  margin: 7px 0 10px;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+.subtitle {
+  max-width: 860px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px; }
+.stat, .tag {
+  border: 1px solid #e5dece;
+  border-radius: 999px;
+  background: #f2eee5;
+  color: #5c5141;
+  font-size: 12px;
+}
+.stat { padding: 5px 10px; }
+main { padding: 30px 24px 48px; }
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.section-head h2 { margin: 4px 0 0; font-size: 20px; line-height: 1.4; }
+.small { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.topics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.topic {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+a.topic { display: block; text-decoration: none; }
+a.topic:hover {
+  border-color: #c8b68e;
+  box-shadow: 0 5px 18px #0000000a;
+  transform: translateY(-2px);
+}
+a.topic:focus-visible { outline: 3px solid #245b8644; outline-offset: 4px; }
+.cover {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: #e9e5db;
+}
+.cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.78);
+  transition: transform .25s, filter .25s;
+}
+a.topic:hover .cover img { transform: scale(1.015); filter: saturate(.95); }
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 9px;
+  border: 1px solid #ffffffaa;
+  border-radius: 999px;
+  background: #fffef0e8;
+  color: #5c5141;
+  font-size: 11px;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+.badge.online { color: var(--green); }
+.card-body { padding: 17px 18px 18px; }
+.topic-number { color: var(--gold); font-size: 11px; font-weight: 800; letter-spacing: .1em; }
+.title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.title-row h3 { margin: 7px 0 6px; font-size: 20px; line-height: 1.4; }
+.arrow { color: var(--blue); font-size: 20px; }
+.description { min-height: 24px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
+.tag { padding: 3px 8px; font-size: 11px; }
+.status { margin-top: 15px; color: var(--muted); font-size: 12px; }
+.status.enter { color: var(--blue); font-weight: 700; }
+footer { padding: 0 24px 28px; color: var(--muted); font-size: 11px; }
+@media (max-width: 700px) {
+  .site-header { padding: 26px 18px 22px; }
+  main { padding: 24px 14px 36px; }
+  .topics { grid-template-columns: 1fr; gap: 18px; }
+  .section-head { align-items: start; }
+  .section-head .small { padding-top: 4px; white-space: normal; text-align: right; }
+  .card-body { padding: 15px 16px 17px; }
+  .description { min-height: 0; }
+  footer { padding: 0 16px 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topic, .cover img { transition: none; }
+  a.topic:hover, a.topic:hover .cover img { transform: none; }
+}
 </style>
 </head>
 <body>
 <header class="site-header">
-  <h1>Kids Learning Hub</h1>
-  <p class="tagline">Explore · Discover · Learn</p>
-  <p class="subtitle">儿童跨学科学习探索平台</p>
+  <div class="header-inner">
+    <div class="kicker">KIDS LEARNING HUB · EXPLORE &amp; DISCOVER</div>
+    <h1>儿童学习知识库</h1>
+    <p class="subtitle">从孩子可能提出的问题出发，用简短的解释、熟悉的例子和互动图解，一起理解经典阅读、数学、英语与历史地理。每个专题都是一次阅读、观察和发现的过程。</p>
+    <div class="stats" aria-label="平台特点">
+      <span class="stat">跨学科专题</span>
+      <span class="stat">图文并茂</span>
+      <span class="stat">互动探索</span>
+      <span class="stat">适合亲子共读</span>
+    </div>
+  </div>
 </header>
 <main>
+  <div class="section-head">
+    <div>
+      <div class="kicker">LEARNING TOPICS</div>
+      <h2>选择一个感兴趣的专题</h2>
+    </div>
+    <span class="small">1 个已上线 · 3 个筹备中</span>
+  </div>
   <section class="topics" aria-label="学习专题">
-    <a class="card" href="./xiyouji/">
-      <div class="card-art">
-        <svg viewBox="0 0 720 405" aria-hidden="true">
-          <rect width="720" height="405" fill="#f4ead6" />
-          <circle cx="606" cy="74" r="43" fill="#e5c778" opacity=".55" />
-          <g stroke="#858071" stroke-width="3" stroke-linejoin="round">
-            <path d="M0 250 88 121l42 61 56-99 79 133 62-88 74 122Z" fill="#d8d2c1" />
-            <path d="m88 121 18 73 24-12 56-99 18 93 61 40 62-88 18 85 56 37" fill="none" />
-            <path d="M355 248 442 96l44 70 49-107 93 155 52-69 40 58v80H355Z" fill="#e0d5bd" />
-            <path d="m442 96 13 77 31-7 49-107 19 97 74 58 52-69" fill="none" />
-          </g>
-          <path d="M-20 339c126-92 141 39 246-22s94-153 181-98 90 148 176 92 80-46 157-21" fill="none" stroke="#f8f3e8" stroke-width="30" />
-          <path d="M-20 339c126-92 141 39 246-22s94-153 181-98 90 148 176 92 80-46 157-21" fill="none" stroke="#7599a2" stroke-width="17" />
-          <g fill="#9b4937">
-            <path d="m120 267 31-51 31 51Z" /><path d="m136 266 15-25 15 25Z" fill="#f4ead6" />
-            <path d="m478 236 27-47 29 47Z" /><path d="m492 235 13-22 14 22Z" fill="#f4ead6" />
-          </g>
-          <g font-family="serif" font-size="18" fill="#514b3e" text-anchor="middle">
-            <text x="72" y="302">长安</text><text x="189" y="83">五行山</text><text x="515" y="181">火焰山</text><text x="632" y="92">灵山</text>
-          </g>
-          <path d="M24 24h56M24 24v56M696 24h-56M696 24v56M24 381h56M24 381v-56M696 381h-56M696 381v-56" fill="none" stroke="#b6a88b" stroke-width="2" />
-        </svg>
+    <a class="topic" href="./xiyouji/">
+      <div class="cover">
+        <img src="./assets/home/xiyouji.jpg" width="1200" height="593" alt="颐和园长廊中的《西游记》唐僧师徒人物彩绘" fetchpriority="high" />
+        <span class="badge online">已上线</span>
       </div>
-      <h2>西游记探索</h2>
-      <p>历史路线、地理位置、妖怪故事</p>
-      <p class="status path">/xiyouji/</p>
+      <div class="card-body">
+        <span class="topic-number">专题 01 · CLASSIC NOVEL</span>
+        <div class="title-row"><h3>西游记探索</h3><span class="arrow" aria-hidden="true">↗</span></div>
+        <p class="description">沿着取经故事查看历史路线、地理位置和妖怪故事。</p>
+        <div class="tags"><span class="tag">经典阅读</span><span class="tag">互动地图</span><span class="tag">44 组故事地点</span></div>
+        <div class="status enter">打开专题 <span aria-hidden="true">→</span></div>
+      </div>
     </a>
 
-    <article class="card">
-      <div class="card-art">
-        <svg viewBox="0 0 720 405" aria-hidden="true">
-          <rect width="720" height="405" fill="#f2faf9" />
-          <circle cx="92" cy="75" r="45" fill="#ffe29a" />
-          <circle cx="635" cy="80" r="55" fill="#dceafb" />
-          <path d="M0 321 154 174l91 87 109-133 123 139 96-91 147 145v84H0Z" fill="#dfeee6" />
-          <g transform="translate(83 102)">
-            <rect x="0" y="42" width="151" height="151" rx="22" fill="#fff" stroke="#77a9d0" stroke-width="7" />
-            <rect x="25" y="18" width="101" height="43" rx="10" fill="#77a9d0" />
-            <g fill="#f2b75c"><circle cx="39" cy="100" r="13" /><circle cx="76" cy="100" r="13" /><circle cx="113" cy="100" r="13" /></g>
-            <g fill="#80c4ac"><rect x="26" y="130" width="26" height="26" rx="5" /><rect x="63" y="130" width="26" height="26" rx="5" /><rect x="100" y="130" width="26" height="26" rx="5" /></g>
-          </g>
-          <g transform="translate(304 73)">
-            <circle cx="73" cy="73" r="69" fill="#f8b7af" />
-            <text x="73" y="99" text-anchor="middle" font-family="Georgia,serif" font-size="82" font-weight="700" fill="#fff">π</text>
-            <path d="m191 34 76 137H115Z" fill="#8ac6b3" />
-            <rect x="26" y="186" width="128" height="100" rx="15" fill="#f7cf72" />
-            <text x="90" y="253" text-anchor="middle" font-family="sans-serif" font-size="55" font-weight="700" fill="#fff">123</text>
-          </g>
-          <g fill="#74a9cf"><circle cx="603" cy="261" r="45" /><rect x="563" y="307" width="80" height="42" rx="12" transform="rotate(-18 563 307)" /></g>
-          <g fill="#f19b93"><path d="m540 96 15 31 34 5-25 24 6 34-30-16-30 16 6-34-25-24 34-5Z" /></g>
-        </svg>
+    <article class="topic">
+      <div class="cover">
+        <img src="./assets/home/math.jpg" width="1000" height="650" alt="写在纸上的数学公式" loading="lazy" />
+        <span class="badge">筹备中</span>
       </div>
-      <h2>数学探索</h2>
-      <p>数学思维、计算、几何</p>
-      <p class="status">即将上线</p>
+      <div class="card-body">
+        <span class="topic-number">专题 02 · MATHEMATICS</span>
+        <div class="title-row"><h3>数学探索</h3></div>
+        <p class="description">从生活问题出发，练习数学思维、计算与几何。</p>
+        <div class="tags"><span class="tag">数学思维</span><span class="tag">计算</span><span class="tag">几何</span></div>
+        <div class="status">内容正在准备，即将上线</div>
+      </div>
     </article>
 
-    <article class="card">
-      <div class="card-art">
-        <svg viewBox="0 0 720 405" aria-hidden="true">
-          <rect width="720" height="405" fill="#f6f3eb" />
-          <circle cx="360" cy="190" r="166" fill="#e6efe2" />
-          <g transform="translate(74 64) rotate(-10 122 150)">
-            <rect x="12" y="13" width="218" height="278" rx="6" fill="#d8d5ca" />
-            <rect width="218" height="278" rx="6" fill="#fdfcf7" stroke="#d9d5c9" stroke-width="3" />
-            <rect width="218" height="39" fill="#78a67a" />
-            <text x="109" y="93" text-anchor="middle" font-family="sans-serif" font-size="27" font-weight="700" fill="#497b65">ABC</text>
-            <path d="M43 224c18-82 53-103 72-50 21-63 48-43 61 50Z" fill="#a7c9d6" />
-            <circle cx="109" cy="143" r="35" fill="#f2c96d" />
-            <text x="109" y="260" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#6d776a">WORDS &amp; STORIES</text>
-          </g>
-          <g transform="translate(283 46) rotate(4 122 150)">
-            <rect x="12" y="13" width="218" height="278" rx="6" fill="#d8d5ca" />
-            <rect width="218" height="278" rx="6" fill="#fffdf6" stroke="#d9d5c9" stroke-width="3" />
-            <rect width="218" height="39" fill="#e2a85f" />
-            <text x="109" y="91" text-anchor="middle" font-family="sans-serif" font-size="25" font-weight="700" fill="#bc7259">New Stories</text>
-            <path d="M109 235v-91" stroke="#8a6c4c" stroke-width="13" />
-            <circle cx="109" cy="131" r="58" fill="#8eb78d" /><circle cx="70" cy="157" r="34" fill="#a6c69c" /><circle cx="149" cy="158" r="34" fill="#a6c69c" />
-            <text x="109" y="263" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#6d776a">READ &amp; DISCOVER</text>
-          </g>
-          <g transform="translate(490 91) rotate(12 80 120)">
-            <rect x="8" y="10" width="158" height="229" rx="5" fill="#d8d5ca" />
-            <rect width="158" height="229" rx="5" fill="#f9f6ef" stroke="#d9d5c9" stroke-width="3" />
-            <rect width="158" height="34" fill="#799bbb" />
-            <text x="79" y="79" text-anchor="middle" font-family="sans-serif" font-size="24" font-weight="700" fill="#6a6ca0">Read!</text>
-            <path d="M35 175q44-85 88 0" fill="#e5b5ac" /><circle cx="79" cy="121" r="30" fill="#f0cc83" />
-          </g>
-        </svg>
+    <article class="topic">
+      <div class="cover">
+        <img src="./assets/home/english.jpg" width="1000" height="650" alt="灯光下排列着书籍的阅读空间" loading="lazy" />
+        <span class="badge">筹备中</span>
       </div>
-      <h2>英语阅读</h2>
-      <p>分级阅读、故事复述、词汇</p>
-      <p class="status">即将上线</p>
+      <div class="card-body">
+        <span class="topic-number">专题 03 · ENGLISH READING</span>
+        <div class="title-row"><h3>英语阅读</h3></div>
+        <p class="description">通过分级故事积累词汇，练习复述与表达。</p>
+        <div class="tags"><span class="tag">分级阅读</span><span class="tag">故事复述</span><span class="tag">词汇</span></div>
+        <div class="status">内容正在准备，即将上线</div>
+      </div>
     </article>
 
-    <article class="card">
-      <div class="card-art">
-        <svg viewBox="0 0 720 405" aria-hidden="true">
-          <rect width="720" height="405" fill="#efe2c8" />
-          <circle cx="555" cy="90" r="56" fill="#d6a55f" opacity=".8" />
-          <path d="M0 271c131-84 234-77 348-10 127 75 236 44 372-44v188H0Z" fill="#d2b17f" />
-          <path d="M0 323c139-67 260-52 369 9 116 65 228 44 351-20v93H0Z" fill="#b98d62" />
-          <path d="M0 369c149-47 261-30 375 12 107 39 216 25 345-10v34H0Z" fill="#8f6d54" />
-          <g transform="translate(106 74)" stroke="#715b48" stroke-width="4" stroke-linejoin="round">
-            <path d="M23 231h235v28H23Z" fill="#84684d" /><path d="M42 153h197v78H42Z" fill="#b68b5f" />
-            <path d="m20 153 120-49 121 49Z" fill="#7c6650" /><path d="M68 79h144v50H68Z" fill="#c09a6e" />
-            <path d="m49 79 91-42 91 42Z" fill="#826950" /><path d="M104 28h72v30h-72Z" fill="#c5a376" />
-            <path d="m90 28 50-28 50 28Z" fill="#765e48" />
-            <path d="M84 231v-48h34v48M161 231v-48h34v48" fill="#705846" />
-          </g>
-          <path d="M373 314c57-80 109-50 135-112s67-88 119-72" fill="none" stroke="#f3e5c9" stroke-width="7" stroke-dasharray="12 13" />
-          <g fill="#6e7c62"><path d="m421 293 16-51 16 51Z" /><path d="m627 304 19-60 19 60Z" /></g>
-          <g font-family="serif" fill="#685541"><text x="471" y="91" font-size="25">丝绸之路</text><text x="473" y="124" font-size="16">历史 · 地理 · 文化</text></g>
-        </svg>
+    <article class="topic">
+      <div class="cover">
+        <img src="./assets/home/history.jpg" width="1000" height="650" alt="秋日山岭间蜿蜒的长城" loading="lazy" />
+        <span class="badge">筹备中</span>
       </div>
-      <h2>历史与地理</h2>
-      <p>敦煌、丝绸之路、中国历史</p>
-      <p class="status">即将上线</p>
+      <div class="card-body">
+        <span class="topic-number">专题 04 · HISTORY &amp; GEOGRAPHY</span>
+        <div class="title-row"><h3>历史与地理</h3></div>
+        <p class="description">从敦煌和丝绸之路出发，理解中国历史与地理。</p>
+        <div class="tags"><span class="tag">敦煌</span><span class="tag">丝绸之路</span><span class="tag">中国历史</span></div>
+        <div class="status">内容正在准备，即将上线</div>
+      </div>
     </article>
   </section>
 </main>
+<footer>Kids Learning Hub · 在阅读与探索中发现问题、理解世界</footer>
 </body>
 </html>

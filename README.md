@@ -15,7 +15,7 @@ Kids Learning Hub 用来整理孩子在阅读、观察和日常学习中遇到�
 | --- | --- | --- |
 | [《西游记》西行路线与妖怪地图](docs/xiyouji.md) | 按回目串联取经故事，通过地图比较小说地点、现代地理参照和玄奘史实路线。 | `/xiyouji/` |
 
-站点首页为 [topics/index.html](topics/index.html)，提供专题导航。专题页面和资源放在 [topics/](topics/)，每个专题的目录名就是它的访问路径。例如 [topics/xiyouji/](topics/xiyouji/) 对应 `/xiyouji/`。专题设计文档放在 [docs/](docs/)。
+站点首页为 [topics/index.html](topics/index.html)，提供专题导航。专题页面和资源放在 [topics/](topics/)，每个专题的目录名就是它的访问路径。例如 [topics/xiyouji/](topics/xiyouji/) 对应 `/xiyouji/`。专题设计文档放在 [docs/](docs/)，首页设计与素材来源见[首页设计](docs/homepage.md)。
 
 ## 本地预览
 
