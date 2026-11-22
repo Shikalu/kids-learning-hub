@@ -30,7 +30,7 @@
 - 专题入口 [index.html](../topics/xiyouji/index.html) 定义页面结构，[styles.css](../topics/xiyouji/styles.css) 定义页面样式。
 - [map.js](../topics/xiyouji/map.js) 负责地图、地点列表和交互。地图使用 Leaflet，通过 MapLibre 的 Leaflet 适配层加载 OpenFreeMap 矢量底图。前端库从 unpkg 加载，页面保留 OpenFreeMap、OpenMapTiles 和 OpenStreetMap 署名。
 - [data.js](../topics/xiyouji/data.js) 保存故事地点和史实对照。故事地点的 `places` 数组包含 `id`、地名、今地参照、经纬度、回目、定位等级、说明和 `demons` 角色列表。史实对照的 `historicalRoute` 数组每项格式为 `[纬度, 经度, 地点名称]`。
-- Cloudflare Pages 将 `topics/` 作为站点根目录发布，线上直接访问 `/xiyouji/`。本地预览命令见[项目说明](../README.md#本地预览)。
+- Cloudflare Pages 将 `topics/` 作为站点根目录发布，线上通过 [https://kids-learning-hub-abq.pages.dev/xiyouji/](https://kids-learning-hub-abq.pages.dev/xiyouji/) 访问，对应路径 `/xiyouji/`。本地预览命令见[项目说明](../README.md#本地预览)。
 - 底图和前端库通过网络加载。地图空白时，可在浏览器开发者工具的网络面板检查 unpkg 和 OpenFreeMap 请求。
 
 ## 更新后核对
