@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>西游记·唐僧师徒西行路线与妖怪地图（OpenFreeMap 无 Key 版）</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.3.0/dist/maplibre-gl.css" />
+<link rel="stylesheet" href="./styles.css" />
+<script type="importmap">
+{
+  "imports": {
+    "leaflet": "https://unpkg.com/leaflet@1.9.4/dist/leaflet-src.esm.js",
+    "maplibre-gl": "https://unpkg.com/maplibre-gl@6.3.0/dist/maplibre-gl.mjs"
+  }
+}
+</script>
+</head>
+<body>
+<header>
+  <div class="kicker">CLASSIC NOVEL · LITERARY GEOGRAPHY</div>
+  <h1>《西游记》唐僧师徒西行路线与妖怪地图</h1>
+  <div class="subtitle">以现代世界地图为底图，按通行百回本的故事出场顺序串联取经地点。点击地图标记或左侧地点卡片，可查看小说地名、今地参照、回目和该处妖怪。红色为妖怪/精怪，绿色为后来归队的角色，蓝色为路线节点。当前版本使用 OpenFreeMap 开源地图服务，不需要 API Key。</div>
+  <div class="toolbar">
+    <input id="search" class="search" type="search" placeholder="搜索地点、妖怪、现代地名或回目…" />
+    <button class="toggle active" id="showRoute">路线节点</button>
+    <button class="toggle active" id="showDemons">妖怪标记</button>
+    <button class="toggle" id="showHistory">玄奘史实路线对照</button>
+    <button class="toggle" id="reset">重置视野</button>
+  </div>
+  <div class="stats">
+    <span class="stat">故事地点：44 组</span><span class="stat">妖怪/精怪：按有名有号及重要群体整理</span><span class="stat">地理定位：现实对应 / 学术推定 / 文学示意</span><span class="stat">底图：开源 · 无 API Key</span>
+  </div>
+</header>
+<main>
+  <aside>
+    <div class="sidehead"><h2>西行路线 · 按故事顺序</h2><span class="small" id="count">44 组地点</span></div>
+    <div class="legend"><span><i class="dot blue"></i>路线地点</span><span><i class="dot red"></i>妖怪/精怪</span><span><i class="dot green"></i>归队角色</span><span><i class="dot gold"></i>史实路线</span></div>
+    <div class="small" style="line-height:1.6;margin:0 3px 10px">定位等级：<b>A</b> 有较明确现实地理原型；<b>B</b> 一种现代地理推定；<b>C</b> 小说虚构或无法精确定位，地图点仅用于展示行程顺序。</div>
+    <div id="places"></div>
+  </aside>
+  <div style="position:relative;min-height:0"><div id="map"></div></div>
+</main>
+<div class="foot">
+<b>资料口径与使用说明：</b>地点及妖魔出场顺序以《西游记》通行百回本的故事地理表为线索；现代地理参照综合公开路线研究中的一种对应方案。不同研究者对“两界山、流沙河、车迟国、狮驼国”等定位并不一致，故地图不把推定写成定论。无名小妖、妖兵不逐个定位；能辨识的主要妖怪、重要精怪及有名有号的小妖尽量列出。<br>
+底图服务：<a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a>（开放源码、公开实例免注册免 API Key）；地图数据来自 OpenStreetMap，地图样式基于 OpenMapTiles。署名：OpenFreeMap · © OpenMapTiles · Data from © OpenStreetMap contributors。<br>
+如果地图仍显示空白，通常是当前网络无法访问地图服务或 unpkg 程序库 CDN；这不是 API Key 问题。可尝试切换网络后重新打开文件。
+</div>
+<script type="module" src="./map.js"></script>
+</body>
+</html>
